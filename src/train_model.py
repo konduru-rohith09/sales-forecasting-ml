@@ -14,8 +14,11 @@ from pathlib import Path
 MODEL_VERSION= "v1"
 
 
-PROCESSED_DIR = Path("../data/processed")
-MODELS_DIR = Path("../models")
+BASE_DIR = Path(__file__).resolve().parent.parent
+
+PROCESSED_DIR = BASE_DIR / "data" / "processed"
+MODELS_DIR = BASE_DIR / "models"
+
 
 MLRUNS_DIR = Path("mlruns")
 
