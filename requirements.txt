@@ -10,3 +10,4 @@ joblib
 scipy
 tqdm
 streamlit
+mlflow
