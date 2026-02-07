@@ -7,17 +7,20 @@ from sklearn.model_selection import train_test_split
 from sklearn.metrics import mean_absolute_error, mean_squared_error
 from sklearn.linear_model import LinearRegression
 from sklearn.ensemble import RandomForestRegressor
-mlflow.set_tracking_uri("file:///C:/Users/Rohith Kumar/sales/mlruns")
 import lightgbm as lgb
 import joblib
-mlflow.set_experiment("sales_forecasting")
+from pathlib import Path
+
 MODEL_VERSION= "v1"
 
 
 PROCESSED_DIR = Path("../data/processed")
 MODELS_DIR = Path("../models")
 
+MLRUNS_DIR = Path("mlruns")
 
+mlflow.set_tracking_uri(f"file://{MLRUNS_DIR.resolve()}")
+mlflow.set_experiment("sales_forecasting")
 def load_data():
     df = pd.read_csv(PROCESSED_DIR / "model_input.csv")
     return df
